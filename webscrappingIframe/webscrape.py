@@ -2,15 +2,18 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import json
 
+
 def read_file_pun():
     f = open(r'C:\Users\Brian\PycharmProjects\parsingIframe\webscrappingIframe\list.txt')
     pun_list = [line.rstrip('\n') for line in f]
     f.close()
     return pun_list
 
+
 def write_json(pun_dictionary):
     with open(r'C:\Users\Brian\PycharmProjects\parsingIframe\webscrappingIframe\result.txt', 'w') as f:
         json.dump(pun_dictionary, f)
+
 
 def main():
     pun_list = read_file_pun()
@@ -49,5 +52,6 @@ def parse_api(pun):
     api = data[3][1][5:]
     api_list = api.split(', ')
     return api_list
+
 
 main()
